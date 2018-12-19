@@ -1,4 +1,5 @@
 rootProject.name = 'starter'
 
 include 'hello-world'
+include 'user-api'
 include 'local-server'
