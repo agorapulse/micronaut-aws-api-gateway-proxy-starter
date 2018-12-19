@@ -1,0 +1,4 @@
+rootProject.name = 'starter'
+
+include 'hello-world'
+include 'local-server'

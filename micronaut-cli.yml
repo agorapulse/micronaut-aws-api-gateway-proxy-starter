@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: micronaut.aws.api.gateway.proxy.starter
+---
+testFramework: spock
+sourceLanguage: java

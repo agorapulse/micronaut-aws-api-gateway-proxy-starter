@@ -1,0 +1,9 @@
+= Micronaut AWS API Gateway Proxy Starter Project
+
+Lambda for API Gateway Proxy is defined in `:hello-world` subproject and can be deployed with `./gradlew :hello-world:deployLambda` command.
+
+Local server is defined in `:local-server` subproject and can be run with `./gradlew :local-server:run` command.
+
+Both projects contain tests using https://agorapulse.github.io/gru/[Gru].
+
+To add new lambda, copy the `:hello-world` project and add the new subproject to `settings.gradle` and as a dependency of `:local-server`

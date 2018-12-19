@@ -1,0 +1,26 @@
+apply plugin: 'jp.classmethod.aws.lambda'
+
+configurations {
+    lambdaCompile.extendsFrom runtime
+    testCompile.extendsFrom lambdaCompile
+}
+
+dependencies {
+    lambdaCompile "com.agorapulse:micronaut-function-aws-agp:$micronautLibrariesVersion"
+
+    compile "io.micronaut:micronaut-http-server"
+    compile "io.micronaut:micronaut-router"
+
+    testCompile "com.agorapulse:gru-api-gateway:$gruVersion"
+}
+
+task buildZip(type: Zip) {
+    from compileJava
+    from compileGroovy
+    from processResources
+    into('lib') {
+        from configurations.lambdaCompile
+    }
+}
+
+build.dependsOn buildZip

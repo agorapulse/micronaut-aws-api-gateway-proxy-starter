@@ -1,0 +1,17 @@
+apply plugin: 'groovy'
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://plugins.gradle.org/m2/' }
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+    compile 'jp.classmethod.aws:gradle-aws-plugin:0.38'
+    compile 'io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE'
+    compile "com.github.jengelman.gradle.plugins:shadow:4.0.2"
+    compile 'net.ltgt.gradle:gradle-apt-plugin:0.19'
+}
