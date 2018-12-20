@@ -1,4 +1,4 @@
-package agorapulse.business.user
+package starter
 
 class UserCreateCommand {
 

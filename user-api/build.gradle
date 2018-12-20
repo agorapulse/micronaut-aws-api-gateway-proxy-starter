@@ -19,6 +19,7 @@ dependencies {
     runtime "org.apache.tomcat:tomcat-jdbc:$tomcatJdbcVersion"
 
     // Not using GRU here but default Micronaut-based tests
+    testCompile "io.micronaut:micronaut-http-server-netty"
     testCompile "io.micronaut:micronaut-http-client"
 }
 

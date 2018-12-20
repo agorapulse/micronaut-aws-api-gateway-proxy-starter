@@ -1,4 +1,4 @@
-package agorapulse.business.user
+package starter
 
 import grails.gorm.annotation.Entity
 import groovy.transform.ToString

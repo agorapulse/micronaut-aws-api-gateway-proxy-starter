@@ -1,4 +1,4 @@
-package agorapulse.business.user
+package starter
 
 import io.micronaut.runtime.Micronaut
 import groovy.transform.CompileStatic
