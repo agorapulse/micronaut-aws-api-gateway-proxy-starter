@@ -22,7 +22,7 @@ dependencies {
 
 task deployLambda(type: AWSLambdaMigrateFunctionTask, dependsOn: build, group: 'deploy')  {
     functionName = 'MicronautStarterUserApi'
-    handler = 'builder.GormAwareHandler::handleRequest'
+    handler = 'starter.UserRequestHandler::handleRequest'
     role = "arn:aws:iam::${LambdaHelper.getAwsAccountId(project)}:role/lambda_basic_execution"
     runtime = Runtime.Java8
     zipFile = buildZip.archivePath

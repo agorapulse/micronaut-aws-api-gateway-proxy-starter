@@ -5,10 +5,11 @@ import groovy.transform.CompileStatic
 import io.micronaut.context.ApplicationContext
 
 @CompileStatic
-class GormAwareHandler extends ApiGatewayProxyHandler {
+class UserRequestHandler extends ApiGatewayProxyHandler {
 
     @Override
     protected void doWithApplicationContext(ApplicationContext applicationContext) {
+        // Required for GORM package scanning
         applicationContext.environment.addPackage('starter')
     }
 

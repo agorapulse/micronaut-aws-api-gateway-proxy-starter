@@ -3,15 +3,17 @@ package starter
 import com.agorapulse.gru.Gru
 import com.agorapulse.gru.agp.ApiGatewayProxy
 import org.junit.Rule
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Stepwise
 
+@Ignore
 @Stepwise
 class UserControllerGruSpec extends Specification {
 
     @Rule Gru gru = Gru.equip(ApiGatewayProxy.steal(this){
-        map '/users' to GormAwareHandler
-        map '/users/{id}' to GormAwareHandler
+        map '/users' to UserRequestHandler
+        map '/users/{id}' to UserRequestHandler
     })
 
     void "list empty users"() {
