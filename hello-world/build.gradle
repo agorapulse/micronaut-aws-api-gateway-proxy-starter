@@ -5,7 +5,7 @@ import jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask
 apply from: '../gradle/lambda.gradle'
 
 task deployLambda(type: AWSLambdaMigrateFunctionTask, dependsOn: build, group: 'deploy')  {
-    functionName = 'MicronautHelloWorld'
+    functionName = 'MicronautStarterHelloWorld'
     handler = 'com.agorapulse.micronaut.agp.ApiGatewayProxyHandler::handleRequest'
     role = "arn:aws:iam::${LambdaHelper.getAwsAccountId(project)}:role/lambda_basic_execution"
     runtime = Runtime.Java8
