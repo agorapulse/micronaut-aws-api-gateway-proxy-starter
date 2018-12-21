@@ -18,6 +18,9 @@ dependencies {
     runtime "com.h2database:h2:$h2Version"
     runtime "org.apache.tomcat:tomcat-jdbc:$tomcatJdbcVersion"
 
+    // to be able to set the packages to scan
+    compile "com.agorapulse:micronaut-function-aws-agp:$micronautLibrariesVersion"
+
     // Not using GRU here but default Micronaut-based tests
     testCompile "io.micronaut:micronaut-http-server-netty"
     testCompile "io.micronaut:micronaut-http-client"
@@ -25,7 +28,7 @@ dependencies {
 
 task deployLambda(type: AWSLambdaMigrateFunctionTask, dependsOn: build, group: 'deploy')  {
     functionName = 'MicronautHelloWorld'
-    handler = 'com.agorapulse.micronaut.agp.ApiGatewayProxyHandler::handleRequest'
+    handler = 'builder.GormAwareHandler::handleRequest'
     role = "arn:aws:iam::${LambdaHelper.getAwsAccountId(project)}:role/lambda_basic_execution"
     runtime = Runtime.Java8
     zipFile = buildZip.archivePath
