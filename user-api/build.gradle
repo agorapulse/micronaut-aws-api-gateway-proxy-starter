@@ -4,12 +4,6 @@ import jp.classmethod.aws.gradle.lambda.AWSLambdaMigrateFunctionTask
 
 apply from: '../gradle/lambda.gradle'
 
-ext {
-    gormVersion = '6.1.9.RELEASE'
-    h2Version = '1.4.196'
-    tomcatJdbcVersion = '8.5.28'
-}
-
 dependencies {
     // GORM + Hibernate
     compile "io.micronaut.configuration:micronaut-hibernate-validator"
@@ -24,7 +18,7 @@ dependencies {
 }
 
 task deployLambda(type: AWSLambdaMigrateFunctionTask, dependsOn: build, group: 'deploy')  {
-    functionName = 'MicronautHelloWorld'
+    functionName = 'MicronautStarterUserApi'
     handler = 'com.agorapulse.micronaut.agp.ApiGatewayProxyHandler::handleRequest'
     role = "arn:aws:iam::${LambdaHelper.getAwsAccountId(project)}:role/lambda_basic_execution"
     runtime = Runtime.Java8
