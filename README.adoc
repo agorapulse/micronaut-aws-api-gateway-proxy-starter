@@ -1,5 +1,10 @@
 = Micronaut AWS API Gateway Proxy Starter Project
 
+IMPORTANT: Project retirement
+-------------------------------
+
+**This project is retired as Micornaut Framework team now offers their own implementation of API Gateway Integration**
+
 Lambda for API Gateway Proxy is defined in `:hello-world` subproject and can be deployed with `./gradlew :hello-world:deployLambda` command.
 It provides two endpoints `GET /hello/world` and `GET /good/bye/` declared in `starter.HelloController` and `starter.GoodByeController`.
 
